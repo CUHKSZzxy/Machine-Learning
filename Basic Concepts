@@ -49,3 +49,15 @@
 **步骤6：验证和模型选择** 	训练完训练集图片后，需要进行模型测试。利用验证集来验证模型是否可以准确地挑选出含有气球在内的照片。 	在此过程中，通常会通过调整和模型相关的各种事物（超参数）来重复步骤2和3，诸如里面有多少个节点，有多少层，使用怎样的激活函数和损失函数，如何在反向传播阶段积极有效地训练权值等等。
 
 **步骤7：测试及应用** 	当有了一个准确的模型，就可以将该模型部署到你的应用程序中。你可以将预测功能发布为API（Application Programming Interface, 应用程序编程接口）调用，并且你可以从软件中调用该API，从而进行推理并给出相应的结果。
+
+
+
+
+Gradint descent: 
+when the data set is large, approximately 10000*10000 matrix, it is more efficient
+but it needs to choose an appropriate å (学习速率), avoid the possibility of missing the global min or diverging
+
+Norm equation:
+when the data set is "small", it is fast and more efficient than the gradint descent, since it can compute the thetas
+but when the data set is quite large, it is time-consuming to computing, say 10000*10000 matrix's inverse. But it works pretty 
+good when the data is relatively small
