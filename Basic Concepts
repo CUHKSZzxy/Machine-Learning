@@ -76,3 +76,7 @@ close to each other, say -1 to 1 (actual do not need to be precise, say -3 to 3,
 when the data set is "small", it is fast and more efficient than the gradint descent, since it can compute the thetas
 but when the data set is quite large, it is time-consuming to computing, say 10000*10000 matrix's inverse. But it works pretty 
 good when the data is relatively small
+
+***(something from Linear Algebra summer session)
+Best rank one approximation, use a set of rank one matrix to approximate a matrix. Complexity is reduced from O(n^2) to O(n)
+save the storage
