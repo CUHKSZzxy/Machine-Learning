@@ -1,13 +1,14 @@
-Machine Learning 
+# Machine Learning 
 
+## What is Machine Learning?
 
 ## Supervised learning Unsupervised learning
-## Supervised learning: we have taught the computer about the "true, false" result for each element in dataset Unsupervised learning: 
-   the computers are not told about the "true, false" result for each element in the dataset, it only knows that there exists a dataset
+Supervised learning: we have taught the computer about the "true, false" result for each element in dataset Unsupervised learning: 
+the computers are not told about the "true, false" result for each element in the dataset, it only knows that there exists a dataset
 
 ## Linear regression & classification (机器学习两大问题：线性回归问题和分类问题)
-## Linear regression: solve continuous case and output continuous result (e.g. the price prediction of house) 
-## classification: consider data as discrete, output a "0 or 1" result
+Linear regression: solve continuous case and output continuous result (e.g. the price prediction of house) 
+classification: consider data as discrete, output a "0 or 1" result
 
 
 ## 监督学习(supervised learning)
