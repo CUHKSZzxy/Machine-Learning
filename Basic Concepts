@@ -171,3 +171,19 @@ True negatives(TN): 被正确地划分为负例的个数，即实际为负例且
 
 1. 拟合函数和预测函数什么关系呢？简单来说就是将拟合函数做了一个逻辑函数的转换，转换后使得$y^{(i)} \in (0,1)$;
 2. 最小二乘和最大似然估计可以相互替代吗？回答当然是不行了。我们来看看两者依仗的原理：最大似然估计是计算使得数据出现的可能性最大的参数，依仗的自然是Probability。而最小二乘是计算误差损失。
+
+
+
+
+
+
+监督学习，无监督学习（supervised and unspuervised learning）
+线性回归，分类（linear regression and classification）
+假设函数（hypothesis function）
+损失函数，代价函数（loss function and cost function）
+梯度下降（gradiint descent）可用矢量放缩（scaling）优化收敛速度
+高级优化（advanced optimization）公式求偏导，最小二乘法（Linear Algebra）
+欠拟合，过拟合问题 在cost function中加入theta项，使得结果趋于光滑
+神经元，神经网络（neuron,neuron network）
+
+
