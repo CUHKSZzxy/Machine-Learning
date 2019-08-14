@@ -118,11 +118,17 @@ True negatives(TN): 被正确地划分为负例的个数，即实际为负例且
 梯度下降（gradiint descent）可用矢量放缩（scaling）优化收敛速度 *可利用线代知识向量化
 高级优化（advanced optimization）公式求偏导，最小二乘法（Linear Algebra）
 欠拟合，过拟合问题（overfitting）
-正则化（regularization）在cost function中加入theta项，使得结果趋于光滑 ∑theta^2
+正则化（regularization）在cost function中加入theta项，使得结果趋于光滑 ∑theta^2, from 1 to n, not include bias unit（偏差项）
 神经元，神经网络（neuron,neuron network）*可利用线代知识向量化
 激活函数（activation function/ actually a sigmoid function）
 向前传播（forward propagation）
 “非”逻辑运算（negation）在预期得到非结果的变量前加一个很大的负的权重（weight/just theta in neural network）e.g. -20*x_1 对x_1的非运算
-多分类问题（神经网络中的）（multi-class classification）单分类的拓展，将输出层改成多个的
+二元分类（binary classification） 0 or 1
+多分类问题（in neural network）（multi-class classification）单分类的拓展，将输出层改成多个的
+代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
+反向传播算法（back propagation）用于计算导数项
+delta^(l)_j error of node j in layer l
+
+
 
 
