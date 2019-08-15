@@ -128,6 +128,8 @@ True negatives(TN): 被正确地划分为负例的个数，即实际为负例且
 代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
 反向传播算法（back propagation）用于计算导数项
 delta^(l)_j error of node j in layer l
+矢量化反向传播算法
+
 
 
 
