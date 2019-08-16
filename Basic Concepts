@@ -8,31 +8,33 @@ the computers are not told about the "true, false" result for each element in th
 Linear regression: solve continuous case and output continuous result (e.g. the price prediction of house) 
 classification: consider data as discrete, output a "0 or 1" result
 
-## 监督学习有哪些步骤
+## 监督学习有哪些步骤?
+监督学习是使用已知正确答案的示例来训练网络，每组训练数据有一个明确的标识或结果。想象一下，我们可以训练一个网络，让其从照片库中（其中包含气球的照片）识别出气球的照片。以下就是我们在这个假设场景中所要采取的步骤。
 
-​	监督学习是使用已知正确答案的示例来训练网络，每组训练数据有一个明确的标识或结果。想象一下，我们可以训练一个网络，让其从照片库中（其中包含气球的照片）识别出气球的照片。以下就是我们在这个假设场景中所要采取的步骤。
-
-**步骤1：数据集的创建和分类** 首先，浏览你的照片（数据集），确定所有包含气球的照片，并对其进行标注。然后，将所有照片分为训练集和验证集。目标就是在深度网络中找一函数，这个函数输入是任意一张照片，当照片中包含气球时，输出1，否则输出0。
-
-**步骤2：数据增强（Data Augmentation）** 	当原始数据搜集和标注完毕，一般搜集的数据并不一定包含目标在各种扰动下的信息。数据的好坏对于机器学习模型的预测能力至关重要，因此一般会进行数据增强。对于图像数据来说，数据增强一般包括，图像旋转，平移，颜色变换，裁剪，仿射变换等。
-
-**步骤3：特征工程（Feature Engineering）** 	一般来讲，特征工程包含特征提取和特征选择。常见的手工特征(Hand-Crafted Feature)有尺度不变特征变换(Scale-Invariant Feature Transform, SIFT)，方向梯度直方图(Histogram of Oriented Gradient, HOG)等。
-由于手工特征是启发式的，其算法设计背后的出发点不同，将这些特征组合在一起的时候有可能会产生冲突，
-如何将组合特征的效能发挥出来，使原始数据在特征空间中的判别性最大化，
-就需要用到特征选择的方法。在深度学习方法大获成功之后，人们很大一部分不再关注特征工程本身。
-因为，最常用到的卷积神经网络(Convolutional Neural Networks, CNNs)本身就是一种特征提取和选择的引擎。研究者提出的不同的网络结构、正则化、归一化方法实际上就是深度学习背景下的特征工程。
-
-**步骤4：构建预测模型和损失** 	将原始数据映射到特征空间之后，也就意味着我们得到了比较合理的输入。下一步就是构建合适的预测模型得到对应输入的输出。
-而如何保证模型的输出和输入标签的一致性，就需要构建模型预测和标签之间的损失函数，常见的损失函数(Loss Function)有交叉熵、均方差等。
-通过优化方法不断迭代，使模型从最初的初始化状态一步步变化为有预测能力的模型的过程，实际上就是学习的过程。
-
-**步骤5：训练** 	选择合适的模型和超参数进行初始化，其中超参数比如支持向量机中核函数、误差项惩罚权重等。当模型初始化参数设定好后，将制作好的特征数据输入到模型，通过合适的优化方法不断缩小输出与标签之间的差距，当迭代过程到了截止条件，就可以得到训练好的模型。
-优化方法最常见的就是梯度下降法及其变种，使用梯度下降法的前提是优化目标函数对于模型是可导的。
-
-**步骤6：验证和模型选择**  训练完训练集图片后，需要进行模型测试。利用验证集来验证模型是否可以准确地挑选出含有气球在内的照片。 	
-在此过程中，通常会通过调整和模型相关的各种事物（超参数）来重复步骤2和3，诸如里面有多少个节点，有多少层，使用怎样的激活函数和损失函数，如何在反向传播阶段积极有效地训练权值等等。
-
-**步骤7：测试及应用** 	当有了一个准确的模型，就可以将该模型部署到你的应用程序中。你可以将预测功能发布为API（Application Programming Interface, 应用程序编程接口）调用，并且你可以从软件中调用该API，从而进行推理并给出相应的结果。
+**步骤1：数据集的创建和分类** 首先，浏览你的照片（数据集），确定所有包含气球的照片，并对其进行标注。然后，将所有照片分为训练集和验证集。
+  目标就是在深度网络中找一函数，这个函数输入是任意一张照片，当照片中包含气球时，输出1，否则输出0。
+**步骤2：数据增强（Data Augmentation）
+  当原始数据搜集和标注完毕，一般搜集的数据并不一定包含目标在各种扰动下的信息。数据的好坏对于机器学习模型的预测能力至关重要，因此一般会进行数据增强。
+  对于图像数据来说，数据增强一般包括，图像旋转，平移，颜色变换，裁剪，仿射变换等。
+**步骤3：特征工程（Feature Engineering）
+  一般来讲，特征工程包含特征提取和特征选择。常见的手工特征(Hand-Crafted Feature)有尺度不变特征变换(Scale-Invariant Feature Transform, SIFT)，方向梯度直方图(Histogram of Oriented Gradient, HOG)等。
+  由于手工特征是启发式的，其算法设计背后的出发点不同，将这些特征组合在一起的时候有可能会产生冲突，
+  如何将组合特征的效能发挥出来，使原始数据在特征空间中的判别性最大化，
+  就需要用到特征选择的方法。在深度学习方法大获成功之后，人们很大一部分不再关注特征工程本身。
+  因为，最常用到的卷积神经网络(Convolutional Neural Networks, CNNs)本身就是一种特征提取和选择的引擎。研究者提出的不同的网络结构、正则化、归一化方法实际上就是深度学习背景下的特征工程。
+**步骤4：构建预测模型和损失
+  将原始数据映射到特征空间之后，也就意味着我们得到了比较合理的输入。下一步就是构建合适的预测模型得到对应输入的输出。
+  而如何保证模型的输出和输入标签的一致性，就需要构建模型预测和标签之间的损失函数，常见的损失函数(Loss Function)有交叉熵、均方差等。
+  通过优化方法不断迭代，使模型从最初的初始化状态一步步变化为有预测能力的模型的过程，实际上就是学习的过程。
+**步骤5：训练
+  选择合适的模型和超参数进行初始化，其中超参数比如支持向量机中核函数、误差项惩罚权重等。当模型初始化参数设定好后，将制作好的特征数据输入到模型，通过合适的优化方法不断缩小输出与标签之间的差距，
+  当迭代过程到了截止条件，就可以得到训练好的模型。
+  优化方法最常见的就是梯度下降法及其变种，使用梯度下降法的前提是优化目标函数对于模型是可导的。
+**步骤6：验证和模型选择
+  训练完训练集图片后，需要进行模型测试。利用验证集来验证模型是否可以准确地挑选出含有气球在内的照片。 	
+  在此过程中，通常会通过调整和模型相关的各种事物（超参数）来重复步骤2和3，诸如里面有多少个节点，有多少层，使用怎样的激活函数和损失函数，如何在反向传播阶段积极有效地训练权值等等。
+**步骤7：测试及应用
+  当有了一个准确的模型，就可以将该模型部署到你的应用程序中。你可以将预测功能发布为API（Application Programming Interface, 应用程序编程接口）调用，并且你可以从软件中调用该API，从而进行推理并给出相应的结果。
 
 
 # Some Algorithms to implement machine learning
@@ -49,74 +51,22 @@ when the data set is "small", it is fast and more efficient than the gradint des
 but when the data set is quite large, it is time-consuming to computing, say 10000*10000 matrix's inverse. But it works pretty 
 good when the data is relatively small
 
-***(something from Linear Algebra summer session)
+##(something from Linear Algebra summer session)
 Best rank one approximation, use a set of rank one matrix to approximate a matrix. Complexity is reduced from O(n^2) to O(n)
 save the storage
 
-
-2.8.2 分类算法的评估方法
-​	分类评估方法主要功能是用来评估分类算法的好坏，而评估一个分类器算法的好坏又包括许多项指标。了解各种评估方法，在实际应用中选择正确的评估方法是十分重要的。
-
-几个常用术语 ​	这里首先介绍几个常见的模型评价术语，现在假设我们的分类目标只有两类，计为正例（positive）和负例（negative）分别是：
-
-True positives(TP): 被正确地划分为正例的个数，即实际为正例且被分类器划分为正例的实例数；
-False positives(FP): 被错误地划分为正例的个数，即实际为负例但被分类器划分为正例的实例数；
-False negatives(FN):被错误地划分为负例的个数，即实际为正例但被分类器划分为负例的实例数；
-True negatives(TN): 被正确地划分为负例的个数，即实际为负例且被分类器划分为负例的实例数。　
-​	表2-2 四个术语的混淆矩阵
-
-图2-3 术语的混淆矩阵
-
-表2-2是这四个术语的混淆矩阵，做以下说明： 1）P=TP+FN表示实际为正例的样本个数。 
-2）True、False描述的是分类器是否判断正确。 
-3）Positive、Negative是分类器的分类结果，如果正例计为1、负例计为-1，即positive=1、negative=-1。用1表示True，-1表示False，那么实际的类标=TF*PN，TF为true或false，PN为positive或negative。 
-4）例如True positives(TP)的实际类标=1*1=1为正例，False positives(FP)的实际类标=(-1)*1=-1为负例，False negatives(FN)的实际类标=(-1)*(-1)=1为正例，True negatives(TN)的实际类标=1*(-1)=-1为负例。
-
-评价指标
-
-正确率（accuracy） 正确率是我们最常见的评价指标，accuracy = (TP+TN)/(P+N)，正确率是被分对的样本数在所有样本数中的占比，通常来说，正确率越高，分类器越好。
-
-错误率（error rate) 错误率则与正确率相反，描述被分类器错分的比例，error rate = (FP+FN)/(P+N)，对某一个实例来说，分对与分错是互斥事件，所以accuracy =1 - error rate。
-
-灵敏度（sensitivity） sensitivity = TP/P，表示的是所有正例中被分对的比例，衡量了分类器对正例的识别能力。
-
-特异性（specificity) specificity = TN/N，表示的是所有负例中被分对的比例，衡量了分类器对负例的识别能力。
-
-精度（precision） precision=TP/(TP+FP)，精度是精确性的度量，表示被分为正例的示例中实际为正例的比例。
-
-召回率（recall） 召回率是覆盖面的度量，度量有多个正例被分为正例，recall=TP/(TP+FN)=TP/P=sensitivity，可以看到召回率与灵敏度是一样的。
-
-其他评价指标 计算速度：分类器训练和预测需要的时间； 鲁棒性：处理缺失值和异常值的能力； 
-可扩展性：处理大数据集的能力； 
-可解释性：分类器的预测标准的可理解性，像决策树产生的规则就是很容易理解的，而神经网络的一堆参数就不好理解，我们只好把它看成一个黑盒子。
-
-精度和召回率反映了分类器分类性能的两个方面。如果综合考虑查准率与查全率，可以得到新的评价指标F1-score，也称为综合分类率：$F1=\frac{2 \times precision \times recall}{precision + recall}​$。
-
-为了综合多个类别的分类情况，评测系统整体性能，经常采用的还有微平均F1（micro-averaging）和宏平均F1（macro-averaging ）两种指标。
-
-（1）宏平均F1与微平均F1是以两种不同的平均方式求的全局F1指标。
-
-（2）宏平均F1的计算方法先对每个类别单独计算F1值，再取这些F1值的算术平均值作为全局指标。
-
-（3）微平均F1的计算方法是先累加计算各个类别的a、b、c、d的值，再由这些值求出F1值。
-
-（4）由两种平均F1的计算方式不难看出，宏平均F1平等对待每一个类别，所以它的值主要受到稀有类别的影响，而微平均F1平等考虑文档集中的每一个文档，所以它的值受到常见类别的影响比较大。
-
-
-
-线性回归与逻辑回归的区别如下描述：
-（1）线性回归的样本的输出，都是连续值，$ y\in (-\infty ,+\infty )$，而逻辑回归中$y\in (0,1)$，只能取0和1。
-（2）对于拟合函数也有本质上的差别
-
-
-
+## 内容大纲和提要
 
 监督学习，无监督学习（supervised and unspuervised learning）
 线性回归，分类（linear regression and classification）logistic regression
 假设函数（hypothesis function）
 损失函数，代价函数（loss function and cost function）
-梯度下降（gradiint descent）可用矢量放缩（scaling）优化收敛速度 *可利用线代知识向量化
-高级优化（advanced optimization）公式求偏导，最小二乘法（Linear Algebra）
+梯度下降（gradiint descent）可用矢量放缩（scaling）优化收敛速度
+* 利用线代知识向量化 x^i_j    j_th feature in i_th data set
+* why we need bias unit in the formula? 
+    since in the hypothesis function, there is a theta_0, for convienience of computation, just assume x_0 = 1, then we have theta_0*x_0
+高级优化（advanced optimization）公式求偏导，最小二乘法（Linear Algebra）当data set ≥ 10000*10000，考虑梯度下降
+    局部梯度下降，每次计算不用所有data set
 欠拟合，过拟合问题（overfitting）
 正则化（regularization）在cost function中加入theta项，使得结果趋于光滑 ∑theta^2, from 1 to n, not include bias unit（偏差项）
 神经元，神经网络（neuron,neuron network）*可利用线代知识向量化
@@ -124,13 +74,10 @@ True negatives(TN): 被正确地划分为负例的个数，即实际为负例且
 向前传播（forward propagation）
 “非”逻辑运算（negation）在预期得到非结果的变量前加一个很大的负的权重（weight/just theta in neural network）e.g. -20*x_1 对x_1的非运算
 二元分类（binary classification） 0 or 1
-多分类问题（in neural network）（multi-class classification）单分类的拓展，将输出层改成多个的
+多分类问题（in neural network）（multi-class classification）单分类的拓展，就是将输出层改成多个输出的
 代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
 反向传播算法（back propagation）用于计算导数项
-delta^(l)_j error of node j in layer l
-矢量化反向传播算法
-
-
-
+* delta^l_j error term of node j in layer l
+梯度检测，用于防止反向传播中可能出现的错误。epsilon ≈ 10^-4
 
 
