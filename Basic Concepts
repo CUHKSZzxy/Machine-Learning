@@ -78,6 +78,9 @@ save the storage
 代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
 反向传播算法（back propagation）用于计算导数项
 * delta^l_j error term of node j in layer l
-梯度检测，用于防止反向传播中可能出现的错误。epsilon ≈ 10^-4
+梯度检测，用于防止反向传播中可能出现的错误。参数epsilon ≈ 10^-4
+随机初始化
+神经网络输入层单元个数=输入矢量的维数，输出层#=输出层#，隐藏层一般来说越多越好，各个隐藏层单元个数一般来说一致，是输出层的若干倍
+
 
 
