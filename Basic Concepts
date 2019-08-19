@@ -82,5 +82,31 @@ save the storage
 随机初始化
 神经网络输入层单元个数=输入矢量的维数，输出层#=输出层#，隐藏层一般来说越多越好，各个隐藏层单元个数一般来说一致，是输出层的若干倍
 
+*details about NNs
+  ai(j) - activation of unit i in layer j 
+So, a12 - is the activation of the 1st unit in the second layer
+By activation, we mean the value which is computed and output by that node
+ Ɵ(j) - matrix of parameters controlling the function mapping from layer j to layer j + 1
+Parameters for controlling mapping from one layer to the next
+If network has 
+sj units in layer j and 
+sj+1 units in layer j + 1 
+Then Ɵj will be of dimensions [s_(j+1) * s_j + 1]
+Because
+sj+1 is equal to the number of units in layer (j + 1)
+is equal to the number of units in layer j, plus an additional unit
+Looking at the Ɵ matrix
+Column length is the number of units in the following layer
+Row length is the number of units in the current layer + 1 (because we have to map the bias unit)
+So, if we had two layers - 101 and 21 units in each
+Then Ɵj would be = [21 x 102]
+
+*e.g.
+Ɵ_(13)^1 = means
+lower number:
+1 - we're mapping to node 1 in layer l+1
+3 - we're mapping from node 3 in layer l
+upper number:
+1 - we're mapping from layer 1
 
 
