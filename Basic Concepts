@@ -109,4 +109,13 @@ lower number:
 upper number:
 1 - we're mapping from layer 1
 
+训练集，测试集三七分，元素要随机取
+
+model selection problem
+训练集（training set），验证集（cross validation set）cv，测试集（test set）
+6,2,2分
+
+诊断偏差（bias）和方差（variance）
+high bias（underfitting）both training & cross validation error are high（two errors approximately equal to each other）
+high variance（overfitting）training erroe low, cross validation erroe high
 
