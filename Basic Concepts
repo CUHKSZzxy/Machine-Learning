@@ -124,18 +124,32 @@ upper number:
 model selection problem
 训练集（training set），验证集（cross validation set）cv，测试集（test set）
 6,2,2分
+对应的cost function为 J_train, J_cv, J_test
 
 *诊断偏差（bias）和方差（variance）as a function of the degree of polynomial（error - degree）
-high bias（underfitting）both training & cross validation error are high（two errors approximately equal to each other） -> small degree
-high variance（overfitting）training error low, cross validation error high -> large degree
+smaller degree -> high bias（underfitting）both training & cross validation error are high（two errors approximately equal to each other）
+intermediate degree -> just right
+larger degree -> high variance（overfitting）training error low, cross validation error high 
 
 *bias and variance as a function of the regularization parameter lamda（error - lamda）
 here, we define J_ train & J_cv as something without regularization term
 How to pick a regularization parameter lamda?
 plot lamda-error figure
-high bias（underfitting）both training & cross validation error are high（two errors approximately equal to each other） -> large lamda
-high variance（overfitting）training error low, cross validation error high -> samll lamda
+larger lamda -> high bias（underfitting）both training & cross validation error are high（two errors approximately equal to each other）  
+intermediate lamda -> just right
+samller lamda -> high variance（overfitting）training error low, cross validation error high 
 
-* 学习曲线（learning curves）（lamda - m） m is the number of our training set
+* 学习曲线（learning curves）（lamda - m） m is the number of our training set, artificially pick certain number of training set
+smaller m -> J_train smaller, J_cv larger. Since it fit a small training set very well, but its generalizing ability（泛化能力）is bad
+larger m -> J_train larger, J_cv smaller. Since it becomes harder to fit numerous data with our hypothesis function, but it will have a good generalizing ability 
+high bias 右开窄喇叭口，train, cv error 都很高，而且当m增大，两者几乎相同
+** interesting fact
+if a algorithm suffers from a high bias problem, more data won't help us
+
+high variance 右开宽喇叭口，train error 逐渐增大，但相对还是较小的，cv error 逐渐减小，但是值相对还是较大，特点：train error 和 cv error之间的gap很大
+** interesting fact
+if a algorithm suffers from a high variance problem, more data will help us
+
+
 
 
