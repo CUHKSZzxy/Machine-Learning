@@ -150,6 +150,18 @@ high variance 右开宽喇叭口，train error 逐渐增大，但相对还是较
 ** interesting fact
 if a algorithm suffers from a high variance problem, more data will help us
 
+* DECIDE WHAT TO DO NEXT (how to evaluate and select a machine learning model)
+** 
+Get more training examples -> fix high variance
+Try smaller set of feature -> fix high variance
+Try getting additional features -> fix high bias
+Try adding polynomila features -> fix high bias
+Try decreasing lamda -> fix high bias
+Try increasing lamda -> fix high variance
+
+
+
+
 
 
 
