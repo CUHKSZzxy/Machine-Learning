@@ -163,7 +163,3 @@ Try increasing lamda -> fix high variance
 ** e.g. spam classification
 快速实现一个算法，绘制出学习曲线，分析误差，决定下一步要采取什么方法来优化（增加数据集，增加特征值。。。）
 spam email example 对于错误分类的那些数据，进行手动分类，归纳总结哪些是属于分类错误数据集的特征
-
-
-
-
