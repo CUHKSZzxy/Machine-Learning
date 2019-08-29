@@ -164,6 +164,33 @@ Try increasing lamda -> fix high variance
 快速实现一个算法，绘制出学习曲线，分析误差，决定下一步要采取什么方法来优化（增加数据集，增加特征值。。。）
 spam email example 对于错误分类的那些数据，进行手动分类，归纳总结哪些是属于分类错误数据集的特征
 
+* Error metrices （评估度量值）for skewed classes
+（only use classification accuracy is not enough to determine whether we have improved the algorithm or not. 
+  Since we have skewed classes）
+** 
+prscision and recall 查准率和召回率
+              Actual      class
+              1           0
+preidict 1    TP          FP
+
+class    0    FN          TN
+
+T/F denote whether prediction is true or false
+P/N denote whether it belongs to positive or negative
+
+Def: precision（查准率） = TP / # of predicted positive     预测有癌症的人中，实际有癌症的人比例是多少
+或者 precision = TP / (TP+FP)
+
+Def: recall（召回率） = TP / # of actual positive     实际有癌症，成功预测出有癌症的比例是多少
+或者  recall = TP / (TP+NP)
+
+* balance between precision（P） and recall（R）
+** to adjust this by changing threshold  h_theta(x) > threshold
+high threshlod: high precision, low recall 减少预测错误
+low threshold: low precision, high recall 减少预测遗漏
+
+因为有两个值，怎么用一个量来评测算法的好坏？
+F = 2PR / (P+R)
 
 
 
