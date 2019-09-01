@@ -192,5 +192,18 @@ low threshold: low precision, high recall 减少预测遗漏
 因为有两个值，怎么用一个量来评测算法的好坏？
 F = 2PR / (P+R)
 
+* ML data
+when does tons of data help to improve our learning algorithm?
+Under these consumption
+** 
+have sufficient large data x which can predict y accurately
+
+use a learning algorithm with lots of parameters (low bias algorithm)  J_train small
+use a large training set (unlikely to overfit) low variance, J_test ≈ J_train
+together, J_test ≈ J_train = samll value
+
+* support vector machine（向量支持机）SVM
+large margin classifier（大间隔分类器）
+** optimizing objective（优化目标）
 
 
