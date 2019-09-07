@@ -205,5 +205,13 @@ together, J_test ≈ J_train = samll value
 * support vector machine（向量支持机）SVM
 large margin classifier（大间隔分类器）
 ** optimizing objective（优化目标）
+LEAVE TO DO
 
+* kernel function（核函数）
+How can we come up with better features rather than high order polynomials?
+Given x: f_1 = similarity(x,l^(1)) = exp(- || x-l^(1) ||^2 / 2*sigma^2)
+
+** similarity function is the kernel, more specifical, this kernel is called Guassian kernel
+x 靠近 f， 函数值约为1， 远离 f， 函数值约为0
+**
 
