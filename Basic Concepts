@@ -213,5 +213,5 @@ Given x: f_1 = similarity(x,l^(1)) = exp(- || x-l^(1) ||^2 / 2*sigma^2)
 
 ** similarity function is the kernel, more specifical, this kernel is called Guassian kernel
 x 靠近 f， 函数值约为1， 远离 f， 函数值约为0
-**
+** 用在超平面上的投影来分开一些平面上无法分开的点
 
