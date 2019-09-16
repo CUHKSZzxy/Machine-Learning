@@ -86,6 +86,7 @@ good when the data is relatively small
 * 代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
 
 * 反向传播算法（back propagation）用于计算导数项
+方向传播算法与PHY1002误差分析中的error propagation如出一辙，参考PHY1002 attached资料
 
 * delta^l_j error term of node j in layer l
 
