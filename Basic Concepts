@@ -223,3 +223,24 @@ Small C: Higher bias, lower variance
 ** \sigma^2: large \sigma, feature $f_i$ more smoothly, Higher bias, lower variance
   \sigma^2: small \sigma, feature $f_i$ less smoothly, lower bias, higher variance
 
+* How to use SVM
+** No kernal(Linear kernal), when n is large, m is small, just use \theta^T*x to avoid overfitting
+** Gaussian kernal, we need to choose \sigma^2
+$f_i = exp(-\frac{||x_i-l_i||^2}{2\sigma^2})$
+perform feature scaling before using Guassian kernal
+** logistic regression vs SVM
+n >> m, say n = 10000, m = 10...1000
+Use logistic refression or SVM without kernel (linear kernal)
+n small, m intermediate, say n =10-1000, m = 100-10000
+Use SVM with Guassian kernal
+n << m, say n = 1-1000, m = 500000+
+add/create more features, then use logistic refression or SVM without kernel (linear kernal)
+
+NN likely to work well for mst of the settings, but maybe slower to train
+
+* Unsupervised learning
+
+
+
+
+
