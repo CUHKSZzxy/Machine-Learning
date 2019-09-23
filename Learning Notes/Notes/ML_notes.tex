@@ -1,15 +1,24 @@
-\documentclass{article}
-\usepackage{xeCJK}
+\documentclass[10pt]{article}
+\usepackage{xeCJK} % allow Chinese character
+\usepackage{multirow} % allow to merge different cols and rows
+\usepackage{enumitem} % allow complex nested list and various numbering
+\usepackage{indentfirst} % indent in the beginning of each line
+\usepackage{geometry} % allow to change the margins
+\geometry{a4paper,scale=0.8}
 
 \author{Jack(Zhou Xinyu)}
 \title{ML learning notes}
+% \setcounter{tocdepth}{1}
 
 \begin{document}
 \maketitle  
-
 \newpage
+
+\tableofcontents
+\newpage
+
 \section{Basic Introduction of ML}
-  \subsubsection{General Steps of ML, surpervised learning}
+  \subsection{General Steps of ML, supervised learning}
   监督学习有哪些步骤?\\
   监督学习是使用已知正确答案的示例来训练网络，每组训练数据有一个明确的标识或结果。想象一下，我们可以训练一个网络，让其从照片库中（其中包含气球的照片）识别出气球的照片。
   以下就是我们在这个假设场景中所要采取的步骤。\\
@@ -48,67 +57,86 @@
   \end{enumerate}
 
 
-% ## 内容大纲和提要
-% * 监督学习，无监督学习（supervised and unspuervised learning）
-% ** Supervised learning Unsupervised learning
-% Supervised learning: we have taught the computer about the "true, false" result for each element in dataset Unsupervised learning: 
-% the computers are not told about the "true, false" result for each element in the dataset, it only knows that there exists a dataset
+\section{Supervised and unsupervised learning}
+Supervised learning: we have taught the computer about the "true, false" result for each element in dataset Unsupervised learning: 
+the computers are not told about the "true, false" result for each element in the dataset, it only knows that there exists a dataset
 
-% * 线性回归，分类（linear regression and classification）logistic regression
-% ** Linear regression & classification (机器学习两大问题：线性回归问题和分类问题)
-% Linear regression: solve continuous case and output continuous result (e.g. the price prediction of house) 
-% classification: consider data as discrete, output a "0 or 1" result
 
-% * 假设函数（hypothesis function）
+\section{Linear regression and classification}
+Classification:logistic regression
+Linear regression: solve continuous case and output continuous result (e.g. the price prediction of house) 
+classification: consider data as discrete, output a "0 or 1" result
 
-% * 损失函数，代价函数（loss function and cost function）
+假设函数（hypothesis function）\\
 
-% * 梯度下降（gradiint descent）可用矢量放缩（scaling）优化收敛速度
-% ** Gradint descent: 
-% when the data set is large, approximately 10000*10000 matrix, it is more efficient
-% but it needs to choose an appropriate å (学习速率), avoid the possibility of missing the global min or diverging
-% ** technique of gradint descent:
-% to make this process faster, if two feature's range is quite different, we need to change the scala, make two range relatively
-% close to each other, say -1 to 1 (actual do not need to be precise, say -3 to 3, -1/3 to 1/3 is also good)
+损失函数，代价函数（loss function and cost function）\\
 
-% * 利用线代知识向量化 x^i_j    j_th feature in i_th data set
-% ** why we need bias unit in the formula? 
-%     since in the hypothesis function, there is a theta_0, for convienience of computation, just assume x_0 = 1, then we have theta_0*x_0
+\section{Gradient descent and feature scaling}
 
-% * 高级优化（advanced optimization）公式求偏导，最小二乘法（Linear Algebra）当data set ≥ 10000*10000，考虑梯度下降
-%   局部梯度下降，每次计算不用所有data set
-% ** Norm equation:
-% when the data set is "small", it is fast and more efficient than the gradint descent, since it can compute the thetas
-% but when the data set is quite large, it is time-consuming to computing, say 10000*10000 matrix's inverse. But it works pretty 
-% good when the data is relatively small
+** gradient descent: 
+when the data set is large, approximately 10000*10000 matrix, it is more efficient
+but it needs to choose an appropriate å (学习速率), avoid the possibility of missing the global min or diverging
+** technique of gradient descent:
+to make this process faster, if two feature's range is quite different, we need to change the scala, make two range relatively
+close to each other, say -1 to 1 (actual do not need to be precise, say -3 to 3, -1/3 to 1/3 is also good)
 
-% * 欠拟合，过拟合问题（overfitting）
+* 利用线代知识向量化 $x^i_j$    $j_{th}$ feature in $i_{th}$ data set
+** why we need bias unit in the formula? 
+    since in the hypothesis function, there is a $\theta_0$, for convenience of computation, just assume $x_0 = 1$, then we have $\theta_0*x_0$
 
+* 高级优化（advanced optimization）公式求偏导，最小二乘法（Linear Algebra）当data set ≥ 10000*10000，考虑梯度下降
+  局部梯度下降，每次计算不用所有data set
+** Norm equation:
+when the data set is "small", it is fast and more efficient than the gradient descent, since it can compute the thetas
+but when the data set is quite large, it is time-consuming to computing, say 10000*10000 matrix's inverse. But it works pretty 
+good when the data is relatively small
+
+\section{Under fitting and over fitting problem}
 % * 正则化（regularization）在cost function中加入theta项，使得结果趋于光滑 ∑theta^2, from 1 to n, not include bias unit（偏差项）
 
-% * 神经元，神经网络（neuron,neuron network）*可利用线代知识向量化
+\section{Neural network}
 
-% * 激活函数（activation function/ actually just our sigmoid function）
+神经元，神经网络（neuron,neuron network）*可利用线代知识向量化
 
-% * 向前传播（forward propagation）
-% ** “非”逻辑运算（negation）在预期得到非结果的变量前加一个很大的负的权重（weight/just theta in neural network）e.g. -20*x_1 对x_1的非运算
-%   二元分类（binary classification） 0 or 1
+激活函数（activation function/ actually just our sigmoid function）
 
-% * 多分类问题（in neural network）（multi-class classification）单分类的拓展，就是将输出层改成多个输出的
+向前传播（forward propagation）
+“非”逻辑运算（negation）在预期得到非结果的变量前加一个很大的负的权重（weight/just theta in neural network）e.g. $-20*x_1$ 对$x_1$的非运算
+二元分类（binary classification） 0 or 1
 
-% * 代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
+多分类问题（in neural network）（multi-class classification）单分类的拓展，就是将输出层改成多个输出的
 
-% * 反向传播算法（back propagation）用于计算导数项
-% 方向传播算法与PHY1002误差分析中的error propagation如出一辙，参考PHY1002 attached资料
+代价函数（in neural network）is the same as the regularization form of the cost function in logistic regression
 
-% * delta^l_j error term of node j in layer l
+反向传播算法（back propagation）用于计算导数项
+反向传播算法与PHY1002误差分析中的error propagation如出一辙，参考PHY1002 attached资料
 
-% * 梯度检测（不是梯度下降），用于防止反向传播中可能出现的错误。参数epsilon ≈ 10^-4
+$delta^l_j$ error term of node j in layer l
 
-% * 随机初始化
+梯度检测（不是梯度下降），用于防止反向传播中可能出现的错误。参数$\epsilon ≈ 10^{-4}$
 
-% * 神经网络输入层单元个数=输入矢量的维数，输出层#=输出层#，隐藏层一般来说越多越好，各个隐藏层单元个数一般来说一致，是输出层的若干倍
-% ** details about NNs
+随机初始化
+
+
+\section{More details about NNs}
+% 神经网络输入层单元个数=输入矢量的维数，输出层#=输出层#，隐藏层一般来说越多越好，各个隐藏层单元个数一般来说一致，是输出层的若干倍
+details about NNs
+
+  \begin{table}[h!]
+    \begin{center}
+      \caption{Parameters of NNs}
+      \label{tab:table1}
+      \begin{tabular}{l|c|r} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+        \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+        $\alpha$ & $\beta$ & $\gamma$ \\
+        \hline
+        1 & 1110.1 & a\\
+        2 & 10.1 & b\\
+        3 & 23.113231 & c\\
+      \end{tabular}
+    \end{center}
+  \end{table}
+
 %   ai(j) - activation of unit i in layer j 
 % So, a12 - is the activation of the 1st unit in the second layer
 % By activation, we mean the value which is computed and output by that node
@@ -134,10 +162,12 @@
 % upper number:
 % 1 - we're mapping from layer 1
 
-% *训练集，测试集三七分，元素要随机取
-% model selection problem
-% 训练集（training set），验证集（cross validation set）cv，测试集（test set）
-% 6,2,2分
+\section{How to evaluate a model}
+*训练集，测试集三七分，元素要随机取
+model selection problem
+训练集（training set），验证集（cross validation set）cv，测试集（test set）
+6,2,2分
+
 % 对应的cost function为 J_train, J_cv, J_test
 
 % *诊断偏差（bias）和方差（variance）as a function of the degree of polynomial（error - degree）
@@ -229,14 +259,14 @@
 % x 靠近 f， 函数值约为1， 远离 f， 函数值约为0
 % ** 用在超平面上的投影来分开一些平面上无法分开的点
 
-% * SVM choose parameter
-% ** $C (=\frac{1}{\lambda}) $
-% Large C: lower bias, higher variance
-% Small C: Higher bias, lower variance
-% ** \sigma^2: large \sigma, feature $f_i$ more smoothly, Higher bias, lower variance
-%   \sigma^2: small \sigma, feature $f_i$ less smoothly, lower bias, higher variance
+\section{SVM choose parameter}
+  \noindent $C (=\frac{1}{\lambda}) $\\
+  Large C: lower bias, higher variance\\
+  Small C: Higher bias, lower variance\\
+  $\sigma^2$: large $\sigma$, feature $f_i$ more smoothly, Higher bias, lower variance\\
+  $\sigma^2$: small $\sigma$, feature $f_i$ less smoothly, lower bias, higher variance\\
 
-\subsubsection{How to use SVM}
+\section{How to use SVM}
 
   ** No kernal(Linear kernal), when n is large, m is small, just use $\theta^T*x$ to avoid overfitting
   ** Gaussian kernal, we need to choose $\sigma^2$
@@ -253,7 +283,7 @@
   NN likely to work well for mst of the settings, but maybe slower to train
 
 
-\subsubsection{Unsupervised learning (clustering)}
+\section{Unsupervised learning (clustering)}
   Feature: No label\\
 
   \begin{enumerate}
@@ -264,7 +294,45 @@
   input: K, Training set, ${x^{(1)},x^{(2)},...x^{(n)}, x^{(i)}\in R^{(n)}}$ drop $x^(0)=1$ convention \\
   if no point in one cluster, then just move that centroid, or randomly reassign that centroid
   for seperated cluster, market segment
-\subsubsection{K-means algorithm}
- 
+
+\section{K-means algorithm}
+  \begin{enumerate}
+    \item Optimization objective or say, (cost function) to minimize\\
+    \item Parameters
+    \begin{enumerate}
+      \item $C^{(i)}$:index of cluster $(1,2,3...K)$ to which example $x^{(i)}$ is currently assigned\\
+      \item $\mu_k$: cluster centroid $k$, $\mu_k \in R^n$\\
+      \item $\mu_C(i)$: cluster centroid of cluster to which example $x^{(i)}$ has been assigned\\
+    \end{enumerate}
+
+    \item $min_{c^{(1)},...,c^{(m)},\mu_1,...,\mu_K} \ J(c^{(1)},...c^{(m)},\mu_1,...,\mu_K)$\\
+          \\
+          $J(c^{(1)},...c^{(m)},\mu_1,...,\mu_K) = \frac{1}{m} \sum_{i = 1}^{m}||x^{(i)}-\mu_c(i)||^2$\\
+          \\
+          This is also called distortion function\\
+    \item Randomly initialize $K$ cluster centroid $\mu_1,\mu_2,...,\mu_K \in R^n$\\
+          Repeat\{\\
+                  step1: cluster assignment\\
+                  for $i=1 \ to \ m$\\
+                  $C^{(i)}$:index of cluster centroid $(1,2,3...K)$  closest to $x^{(i)}$\\ 
+                  step2: move centroid\\
+                  for $k=1 \ to \ K$\\
+                  $\mu_k$:average(mean)of points assigned to cluster $k$\}
+  \end{enumerate}
+
+\section{Random Initialize of K-means}
+
+Randomly pick $K$ training examples and set $\mu_1,...,\mu_K$ equal to these K examples. Notice $K<m$ 
+
+The converging result (local optima) could be different owing to different initializations. Solution, initialize it many times. 
+
+Say, $K$ is relatively small 2-10, then multi-random initializations can make sure we get the global min 
+
+\subsection{Choose num of clusters for K-means}
+
+Elbow Method
+
+Choose according to practical usage
 
 \end{document}
+

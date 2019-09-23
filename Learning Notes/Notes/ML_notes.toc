@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Basic Introduction of ML}{3}% 
+\contentsline {subsection}{\numberline {1.1}General Steps of ML, supervised learning}{3}% 
+\contentsline {section}{\numberline {2}Supervised and unsupervised learning}{3}% 
+\contentsline {section}{\numberline {3}Linear regression and classification}{3}% 
+\contentsline {section}{\numberline {4}Gradient descent and feature scaling}{4}% 
+\contentsline {section}{\numberline {5}Under fitting and over fitting problem}{4}% 
+\contentsline {section}{\numberline {6}Neural network}{4}% 
+\contentsline {section}{\numberline {7}More details about NNs}{4}% 
+\contentsline {section}{\numberline {8}How to evaluate a model}{4}% 
+\contentsline {section}{\numberline {9}SVM choose parameter}{5}% 
+\contentsline {section}{\numberline {10}How to use SVM}{5}% 
+\contentsline {section}{\numberline {11}Unsupervised learning (clustering)}{5}% 
+\contentsline {section}{\numberline {12}K-means algorithm}{5}% 
+\contentsline {section}{\numberline {13}Random Initialize of K-means}{6}% 
+\contentsline {subsection}{\numberline {13.1}Choose num of clusters for K-means}{6}% 
