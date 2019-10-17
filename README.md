@@ -4,8 +4,7 @@
 >"_Stay hungry, stay foolish._"
 
 
-## This is a repository for Machine Learning Courses given by _Andrew NG_.
-## Thanks for his marvelous ML courses!
+**This is a repository for Machine Learning Courses given by _Andrew NG_. Thanks for his marvelous ML courses!**  
 
 ![ML Course][pic]
 
