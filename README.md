@@ -22,7 +22,7 @@ Here is the catagory:
     * Ex8
   * Lecture notes
   
-  All the assignments reference solutions are provided in this repository, however, worth noticing is that, the answer may not be the best one and may contain some typos and errors. Additionally, I also referred to the answer given by [_suraggupta_](https://github.com/suraggupta/coursera-machine-learning-solutions-python).    
+  All the assignments reference solutions are provided in this repository, however, worth noticing is that, the answer may not be the best one and may contain some typos and errors. But the correctness should not be a problem, since all the solutions have passed the submission test offered by coursera platform. Additionally, I also referred to the answer given by [_suraggupta_](https://github.com/suraggupta/coursera-machine-learning-solutions-python).    
   If you are interested in this, the complete python, jupyter notebook version assignment can be found [here][reference].
 
 
