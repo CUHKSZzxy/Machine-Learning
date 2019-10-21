@@ -27,7 +27,8 @@ Here is the catagory:
   If you are interested in this, the complete python, jupyter notebook version assignment can be found [here][reference].
 
 
-
+2019.10.21
+😆Oops, today is surely a milestone. I finish all the online courses! Thanks again for Andrew NG, thanks for his companion all through this long time. Keep going!
 
 
 
